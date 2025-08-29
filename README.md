@@ -59,6 +59,7 @@ This component is ideal for **blogs, galleries, and content-heavy pages**, impro
   :index="0"
   :priority-count="4"
 />
+```
 
 ### 2. Author avatar with lazy loading
 ```vue
@@ -69,7 +70,7 @@ This component is ideal for **blogs, galleries, and content-heavy pages**, impro
   height="40"
   :lazy="true"
 />
-
+```
 
 ### 3. Override img-attrs manually
 ```vue
@@ -81,8 +82,7 @@ This component is ideal for **blogs, galleries, and content-heavy pages**, impro
   format="avif,webp"
   :img-attrs="{ loading: 'eager', fetchpriority: 'auto' }"
 />
-
-
+```
 
 ### 4. Looping through multiple images
 ```vue
@@ -95,8 +95,7 @@ This component is ideal for **blogs, galleries, and content-heavy pages**, impro
       :lazy="i >= 3"
     />
   </div>
-
-
+```
 
 ### 5. Custom placeholder
 ```vue
@@ -107,6 +106,7 @@ This component is ideal for **blogs, galleries, and content-heavy pages**, impro
   height="675"
   :placeholder="'/images/placeholder-small.jpg'"
 />
+```
 
 ## Recommendations
 
@@ -139,5 +139,3 @@ This component is ideal for **blogs, galleries, and content-heavy pages**, impro
 ## License
 
 This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
-
-
