@@ -1,12 +1,12 @@
-# LayoutShimmerImage.vue
+# ShimmerImage.vue
 
 ## Short Description
-`LayoutShimmerImage` is a Nuxt image component with shimmer loader, optional lazy loading, priority for key images, responsive formats (WebP/AVIF), and customizable placeholders. Optimized for fast loading and improved LCP.
+`ShimmerImage` is a Nuxt image component with shimmer loader, optional lazy loading, priority for key images, responsive formats (WebP/AVIF), and customizable placeholders. Optimized for fast loading and improved LCP.
 
 ---
 
 ## Overview
-`LayoutShimmerImage` is a versatile image component for **Nuxt 3/4** that provides:
+`ShimmerImage` is a versatile image component for **Nuxt 3/4** that provides:
 
 - **Shimmer loader** during image loading  
 - **Optional lazy loading**  
@@ -51,7 +51,7 @@ This component is ideal for **blogs, galleries, and content-heavy pages**, impro
 
 ### 1. Main blog image with high priority
 ```vue
-<LayoutShimmerImage 
+<ShimmerImage 
   :src="imageUrl" 
   :alt="post.title" 
   :width="1200"
@@ -63,7 +63,7 @@ This component is ideal for **blogs, galleries, and content-heavy pages**, impro
 
 ### 2. Author avatar with lazy loading
 ```vue
-<LayoutShimmerImage
+<ShimmerImage
   :src="autorPhoto"
   alt="Author"
   width="40"
@@ -74,7 +74,7 @@ This component is ideal for **blogs, galleries, and content-heavy pages**, impro
 
 ### 3. Override img-attrs manually
 ```vue
-<LayoutShimmerImage
+<ShimmerImage
   :src="imageUrl"
   alt="Example Image"
   width="1200"
@@ -87,7 +87,7 @@ This component is ideal for **blogs, galleries, and content-heavy pages**, impro
 ### 4. Looping through multiple images
 ```vue
   <div v-for="(image, i) in images" :key="i">
-    <LayoutShimmerImage
+    <ShimmerImage
       :src="image.url"
       :alt="image.title"
       :index="i"
@@ -99,7 +99,7 @@ This component is ideal for **blogs, galleries, and content-heavy pages**, impro
 
 ### 5. Custom placeholder
 ```vue
-<LayoutShimmerImage
+<ShimmerImage
   :src="imageUrl"
   alt="Example"
   width="1200"
