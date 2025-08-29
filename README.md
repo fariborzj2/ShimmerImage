@@ -134,7 +134,7 @@ This component is ideal for **blogs, galleries, and content-heavy pages**, impro
     animation: none;
   }
 }
-
+```
 
 ## License
 
