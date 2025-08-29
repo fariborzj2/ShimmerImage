@@ -1,36 +1,45 @@
 <script setup>
+// ================================
+// LayoutShimmerImage.vue
+// Author: Fariborz Jafarzadeh
+// Email: fariborzj2@gmail.com
+// Social: @fariborzj2
+// Version: 1.0
+// ================================
+
 const props = defineProps({
   src: { type: String, required: true },
   alt: { type: String, default: '' },
   width: { type: [Number, String], default: 1200 },
   height: { type: [Number, String], default: 675 },
   index: { type: Number, default: 0 },
-  priorityCount: { type: Number, default: 4 }, // تعداد تصاویر با priority بالا
-  lazy: { type: Boolean, default: false },   // ← lazy پیش‌فرض غیرفعال
+  priorityCount: { type: Number, default: 4 }, // Number of images with high priority
+  lazy: { type: Boolean, default: false },    // Lazy loading is disabled by default
   format: { type: [String, Array], default: () => ['avif', 'webp'] },
   widths: { type: Array, default: () => [320, 480, 640, 800, 1200] },
   sizes: { type: String, default: '(max-width: 768px) 100vw, 1200px' },
   imgAttrs: { type: Object, default: () => ({}) },
-  placeholder: { type: [String, Number], default: 20 },
+  placeholder: { type: [String, Number], default: 20 }, // Placeholder image or blur value
 })
 
-// تعیین priority براساس index و تعداد مشخص‌شده
+// Determine priority based on index and specified count
 const isPriority = computed(() => props.index < props.priorityCount);
 
-// کنترل loading
+// Configure image loading attributes
 const finalImgAttrs = computed(() => ({
-  loading: props.lazy ? 'lazy' : 'eager',       // ← اگر lazy=true باشد lazy می‌شود
+  loading: props.lazy ? 'lazy' : 'eager',       // Use lazy if lazy=true
   decoding: 'async',
   fetchpriority: isPriority.value ? 'high' : 'auto',
   ...props.imgAttrs,
 }));
 
+// Join formats if array
 const finalFormat = computed(() =>
   Array.isArray(props.format) ? props.format.join(',') : props.format
 );
 
+// Track loading state
 const isLoaded = ref(false);
-
 </script>
 
 <template>
@@ -58,7 +67,7 @@ const isLoaded = ref(false);
   overflow: hidden;
 }
 
-/* Shimmer animation */
+/* Shimmer animation while loading */
 .shimer-img {
   position: relative;
   overflow: hidden;
@@ -76,13 +85,13 @@ const isLoaded = ref(false);
   opacity: 1;
 }
 
-/* Keyframes shimmer */
+/* Keyframes for shimmer animation */
 @keyframes shimer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
 
-/* Reduced motion support */
+/* Support for reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   .shimmer-wrapper.shimer-img {
     animation: none;
